@@ -1,5 +1,5 @@
 // import { useState } from 'react'
-import './App.css';
+import './App.css'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -8,7 +8,7 @@ function App() {
     <>
       <h2>oli</h2>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
