@@ -12,7 +12,7 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     'prettier/prettier': 'error',
-    semi: false,
+    semi: 0,
   },
   settings: {
     react: {
