@@ -13,6 +13,7 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     semi: 0,
+    'react/react-in-jsx-scope': 'off',
   },
   settings: {
     react: {
