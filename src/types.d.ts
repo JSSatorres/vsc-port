@@ -6,3 +6,5 @@ export interface Project {
 }
 
 type Technology = string
+
+// to import interface :  import {type Project } from 'path'
