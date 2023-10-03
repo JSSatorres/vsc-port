@@ -1,12 +1,10 @@
-// import { useState } from 'react'
+import { Navigation } from './routes/Navigation'
 import './App.css'
 
 function App(): JSX.Element {
-  // const [count, setCount] = useState(0)
-
   return (
     <>
-      <h2>oli</h2>
+      <Navigation />
     </>
   )
 }
