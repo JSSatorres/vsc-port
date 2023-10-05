@@ -1,9 +1,9 @@
 type Folder = {
     name: string
     subfolders: Folder[]
-  }
+}
   
-  export const folderData: Folder[] = [
+export const folderData: Folder[] = [
     {
       name: 'Carpeta 1',
       subfolders: [
