@@ -10,7 +10,7 @@ const withResizable = <P extends ResizableProps>(
 ) => {
   return function ResizableComponent(props: P) {
     const [width, setWidth] = useState(200)
-    const [height, setHeight] = useState(100)
+    const [height, setHeight] = useState(500)
 
     const handleResize = (e: React.MouseEvent<HTMLDivElement>) => {
       setWidth(e.clientX)
