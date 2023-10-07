@@ -2,9 +2,9 @@
 import { folderData } from '../../../constants/folderData'
 import { FolderComponent } from '../folderComponent/FolderComponent'
 
-const Sidebar = () => {
+const SidebarComponent = () => {
   return (
-    <div className="sidebar">
+    <div className="SidebarComponent">
       {folderData.map((folder, index) => (
         <FolderComponent
           key={index}
@@ -16,4 +16,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default SidebarComponent
