@@ -26,6 +26,11 @@ body {
     rgb(var(--background-start-rgb)); */
   background-color: rgba(30, 34, 39, 0.979);
 }
+.resize-right {
+  resize: horizontal;
+  overflow: auto;
+  cursor: ew-resize;
+}
 
 @layercomponents {
   .btn {
