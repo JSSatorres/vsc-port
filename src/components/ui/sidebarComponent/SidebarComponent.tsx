@@ -8,8 +8,8 @@ const SidebarComponent = () => {
       {folderData.map((folder, index) => (
         <FolderComponent
           key={index}
-          subfolders={folder.subfolders}
-          name={folder.name}
+          content={folder?.content}
+          name={folder?.name}
         />
       ))}
     </div>
