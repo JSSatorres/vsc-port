@@ -1,13 +1,8 @@
 import { useState } from 'react'
-type FolderProps = {
-  name: string
-  subfolders: FolderProps[]
-}
+// import { type ProjectName } from '../../../types'
+import { type Folder } from '../../../types'
 
-export const FolderComponent: React.FC<FolderProps> = ({
-  name,
-  subfolders,
-}) => {
+export const FolderComponent: React.FC<Folder> = ({ name, content }) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   const toggleExpansion = () => {
@@ -18,7 +13,7 @@ export const FolderComponent: React.FC<FolderProps> = ({
     setIsExpanded(!isExpanded)
   }
   const isLast = () => {
-    return subfolders.length === 0
+    return content?.length === 0
   }
 
   return (
@@ -33,7 +28,7 @@ export const FolderComponent: React.FC<FolderProps> = ({
       </div>
       {isExpanded && (
         <div className="ml-4">
-          {subfolders.map((folder, index) => (
+          {content?.map((folder, index) => (
             <FolderComponent key={index} {...folder} />
           ))}
         </div>
