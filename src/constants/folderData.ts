@@ -1,28 +1,64 @@
-type Folder = {
-  name: string
-  subfolders: Folder[]
-}
+import { Folder } from '../types'
 
 export const folderData: Folder[] = [
   {
     name: 'Carpeta 1',
-    subfolders: [
+    content: [
       {
         name: 'Subcarpeta 1.1',
-        subfolders: [],
+        content: [
+          {
+            id: '1',
+            name: 'Proyecto 1',
+            technologies: ['Tecnología A', 'Tecnología B'],
+            description: 'Descripción del Proyecto 1',
+          },
+          {
+            id: '2',
+            name: 'Proyecto 2',
+            technologies: ['Tecnología C', 'Tecnología D'],
+            description: 'Descripción del Proyecto 2',
+          },
+        ],
       },
     ],
   },
   {
     name: 'Carpeta 2',
-    subfolders: [],
+    content: [
+      {
+        id: '1',
+        name: 'Proyecto 1',
+        technologies: ['Tecnología A', 'Tecnología B'],
+        description: 'Descripción del Proyecto 1',
+      },
+      {
+        id: '2',
+        name: 'Proyecto 2',
+        technologies: ['Tecnología C', 'Tecnología D'],
+        description: 'Descripción del Proyecto 2',
+      },
+    ],
   },
   {
     name: 'Carpeta 3',
-    subfolders: [
+    content: [
       {
         name: 'Subcarpeta 3.1',
-        subfolders: [],
+        content: [
+          {
+            id: '1',
+            name: 'Proyecto 1',
+            technologies: ['Tecnología A', 'Tecnología B'],
+            description: 'Descripción del Proyecto 1',
+          },
+          {
+            id: '2',
+            name: 'Proyecto 2',
+            technologies: ['Tecnología C', 'Tecnología D'],
+            description: 'Descripción del Proyecto 2',
+          },
+        ],
       },
     ],
   },
