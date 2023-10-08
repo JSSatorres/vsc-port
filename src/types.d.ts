@@ -7,4 +7,13 @@ export interface Project {
 
 type Technology = string
 
+type Folder = {
+  name: string
+  content?: Folder[] | Project[]
+}
+
+interface ProjectName {
+  id: string
+  name: string
+}
 // to import interface :  import {type Project } from 'path'
