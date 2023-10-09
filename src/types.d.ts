@@ -12,6 +12,11 @@ type Folder = {
   content?: Folder[] | Project[]
 }
 
+interface ScreenContext {
+  screenNumber: number
+  currentScreen: number
+  currentScreenData: Project | Project[] | []
+}
 interface ProjectName {
   id: string
   name: string
