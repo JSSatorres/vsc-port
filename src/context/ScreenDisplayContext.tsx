@@ -1,3 +1,10 @@
 import { createContext } from 'react'
+import { type ScreenContext } from '../types'
 
-export const ScreenDisplayContext = createContext({})
+interface ScreenDisplayContext {
+  screenContext: ScreenContext
+}
+
+export const ScreenDisplayContext = createContext<ScreenDisplayContext>(
+  {} as ScreenDisplayContext,
+)
