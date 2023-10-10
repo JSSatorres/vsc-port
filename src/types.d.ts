@@ -17,6 +17,12 @@ interface ScreenContext {
   currentScreen: number
   currentScreenData: Project | Project[] | []
 }
+
+interface ScreenDisplayProviderContext {
+  state: ScreenContext
+  addProject: (project: Project) => void
+  deleteProject: (project: Project) => void
+}
 interface ProjectName {
   id: string
   name: string
