@@ -1,29 +1,28 @@
-type Folder = {
-  name: string
-  subfolders: Folder[]
-}
+import { type Project } from '../types'
 
-export const folderData: Folder[] = [
+export const Projects: Project[] = [
   {
-    name: 'Carpeta 1',
-    subfolders: [
-      {
-        name: 'Subcarpeta 1.1',
-        subfolders: [],
-      },
-    ],
+    id: crypto.randomUUID(),
+    name: 'Portflio',
+    technologies: ['React', 'TypeScript'],
+    description: 'lorem ipsum lapà',
   },
   {
-    name: 'Carpeta 2',
-    subfolders: [],
+    id: crypto.randomUUID(),
+    name: 'CafeShop',
+    technologies: ['Node', 'Express'],
+    description: 'lorem ipsum lapà',
   },
   {
-    name: 'Carpeta 3',
-    subfolders: [
-      {
-        name: 'Subcarpeta 3.1',
-        subfolders: [],
-      },
-    ],
+    id: crypto.randomUUID(),
+    name: 'Videocrypto.randomUUID()tore',
+    technologies: ['Vue', 'TypeScript'],
+    description: 'lorem ipsum lapà',
+  },
+  {
+    id: crypto.randomUUID(),
+    name: 'Who will win',
+    technologies: ['Python', 'Pandas'],
+    description: 'lorem ipsum lapà',
   },
 ]
