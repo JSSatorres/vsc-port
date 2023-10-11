@@ -1,14 +1,14 @@
-// import { Children } from 'react'
 import { folderData } from '../constants/folderData'
 import { ScreenDisplayContext } from './ScreenDisplayContext'
 import { type ScreenContext } from '../types'
 import { type Project } from '../types'
 import { useReducer } from 'react'
+import { Projects } from '../constants/projects'
 
 const initialState: ScreenContext = {
   screenNumber: folderData.length,
   currentScreen: 1,
-  currentScreenData: [] as Project[],
+  currentScreenData: [Projects[0]],
 }
 type ScreenDisplayAction =
   | { type: 'addProject'; payload: Project }
@@ -22,10 +22,7 @@ export const ScreenDispplayReducer = (
     case 'addProject':
       return {
         ...state,
-        currentScreenData: [
-          ...(state.currentScreenData as Project | Project[] | []),
-          action.payload,
-        ],
+        currentScreenData: [...state.currentScreenData, action.payload],
       }
     default:
       return state
