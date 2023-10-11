@@ -1,5 +1,5 @@
 export interface Project {
-  id: string
+  id: `${string}-${string}-${string}-${string}-${string}`
   name: string
   technologies: Technology[]
   description: string
@@ -15,7 +15,7 @@ type Folder = {
 interface ScreenContext {
   screenNumber: number
   currentScreen: number
-  currentScreenData: Project | Project[] | []
+  currentScreenData: Project[]
 }
 
 interface ScreenDisplayProviderContext {
