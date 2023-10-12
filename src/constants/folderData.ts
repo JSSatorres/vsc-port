@@ -1,65 +1,82 @@
-import { Folder } from '../types'
+import { type Folder } from '../types'
+import { getProjectsByTechnology } from '../utils/projectsUtils'
 
 export const folderData: Folder[] = [
   {
-    name: 'Carpeta 1',
+    name: 'Javascript',
     content: [
       {
-        name: 'Subcarpeta 1.1',
-        content: [
-          {
-            id: '1',
-            name: 'Proyecto 1',
-            technologies: ['Tecnología A', 'Tecnología B'],
-            description: 'Descripción del Proyecto 1',
-          },
-          {
-            id: '2',
-            name: 'Proyecto 2',
-            technologies: ['Tecnología C', 'Tecnología D'],
-            description: 'Descripción del Proyecto 2',
-          },
-        ],
+        name: 'React',
+        content: getProjectsByTechnology({
+          language: 'JavaScript',
+          mainTechnology: 'React',
+        }),
+      },
+      {
+        name: 'Vue',
+        content: getProjectsByTechnology({
+          language: 'JavaScript',
+          mainTechnology: 'Vue',
+        }),
+      },
+      {
+        name: 'Node',
+        content: getProjectsByTechnology({
+          language: 'JavaScript',
+          mainTechnology: 'Vue',
+        }),
       },
     ],
   },
   {
-    name: 'Carpeta 2',
+    name: 'TypeScript',
     content: [
       {
-        id: '1',
-        name: 'Proyecto 1',
-        technologies: ['Tecnología A', 'Tecnología B'],
-        description: 'Descripción del Proyecto 1',
+        name: 'React',
+        content: getProjectsByTechnology({
+          language: 'TypeScript',
+          mainTechnology: 'React',
+        }),
       },
       {
-        id: '2',
-        name: 'Proyecto 2',
-        technologies: ['Tecnología C', 'Tecnología D'],
-        description: 'Descripción del Proyecto 2',
+        name: 'Vue',
+        content: getProjectsByTechnology({
+          language: 'TypeScript',
+          mainTechnology: 'Vue',
+        }),
+      },
+      {
+        name: 'Node',
+        content: getProjectsByTechnology({
+          language: 'TypeScript',
+          mainTechnology: 'Vue',
+        }),
       },
     ],
   },
   {
-    name: 'Carpeta 3',
+    name: 'Python',
     content: [
       {
-        name: 'Subcarpeta 3.1',
-        content: [
-          {
-            id: '1',
-            name: 'Proyecto 1',
-            technologies: ['Tecnología A', 'Tecnología B'],
-            description: 'Descripción del Proyecto 1',
-          },
-          {
-            id: '2',
-            name: 'Proyecto 2',
-            technologies: ['Tecnología C', 'Tecnología D'],
-            description: 'Descripción del Proyecto 2',
-          },
-        ],
+        name: 'WebScrapping',
+        content: getProjectsByTechnology({
+          language: 'Python',
+          mainTechnology: 'WebScrapping',
+        }),
+      },
+      {
+        name: 'FastApi',
+        content: getProjectsByTechnology({
+          language: 'Python',
+          mainTechnology: 'FastApi',
+        }),
       },
     ],
+  },
+  {
+    name: 'PHP',
+    content: getProjectsByTechnology({
+      language: 'PHP',
+    }),
   },
 ]
