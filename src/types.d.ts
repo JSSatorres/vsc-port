@@ -1,15 +1,17 @@
 export interface Project {
-  id: `${string}-${string}-${string}-${string}-${string}`
-  name: string
-  technologies: Technology[]
-  description: string
+  readonly id: `${string}-${string}-${string}-${string}-${string}`
+  readonly name: string
+  readonly technologies: Technology[]
+  readonly description: string
+  readonly mainTechnology: string
+  readonly language: string
 }
 
 type Technology = string
 
 type Folder = {
   name: string
-  content?: Folder[] | Project[]
+  content?: (Folder | Project)[]
 }
 
 interface ScreenContext {
@@ -27,4 +29,8 @@ interface ProjectName {
   id: string
   name: string
 }
+
+type ScreenDisplayAction =
+  | { type: 'addProject'; payload: Project }
+  | { type: 'deleteProject'; payload: { id: number } }
 // to import interface :  import {type Project } from 'path'
