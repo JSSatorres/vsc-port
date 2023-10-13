@@ -9,15 +9,15 @@ const Project: React.FC<ProjectProps> = ({ dataProject }) => {
 
   return (
     <div className="text-white">
-      <h2>{name}</h2>
-      <h2>{id}</h2>
-      <h2>{language}</h2>
-      <h2>{mainTechnology}</h2>
-      <h2>
-        {technologies.map((technology) => (
-          <h2>{technology}</h2>
+      <h3>{name}</h3>
+      <h3>{id}</h3>
+      <h3>{language}</h3>
+      <h3>{mainTechnology}</h3>
+      <h3>
+        {technologies.map((technology, index) => (
+          <p key={index}>{technology}</p>
         ))}
-      </h2>
+      </h3>
     </div>
   )
 }
