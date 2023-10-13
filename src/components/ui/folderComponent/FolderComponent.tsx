@@ -10,18 +10,18 @@ export const FolderComponent: React.FC<Folder> = ({ name, content }) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   const toggleExpansion = () => {
-    if (isLast()) {
-      console.log('Clic en el último elemento')
-      return
-    }
     setIsExpanded(!isExpanded)
   }
+  // console.log(content)
+
   const isLast = () => {
-    return content?.length === 0
+    return content === undefined
   }
-  // ${
-  //   isExpanded ? 'text-indigo-600' : 'text-gray-400'
-  // }
+  // // ${
+  // //   isExpanded ? 'text-indigo-600' : 'text-gray-400'
+  // // }
+  // console.log(isLast())
+  // console.log(name, content)
 
   return (
     <div>
@@ -35,7 +35,9 @@ export const FolderComponent: React.FC<Folder> = ({ name, content }) => {
           <>
             <IconChevronRight size={20} />
             <IconFolderFilled size={20} />
-          </>
+          </> /*: isLast() ? (
+          <IconFileDescription />
+        ) : */
         ) : isLast() ? (
           <IconFileDescription />
         ) : (
