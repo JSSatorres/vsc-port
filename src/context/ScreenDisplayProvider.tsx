@@ -1,18 +1,17 @@
-import { folderData } from '../constants/folderData'
+// import { folderData } from '../constants/folderData'
 import { ScreenDisplayContext } from './ScreenDisplayContext'
 import { type ScreenContext } from '../types'
 import { type Project } from '../types'
-import { useReducer } from 'react'
-import { Projects } from '../constants/projects'
+import { type ScreenDisplayAction } from '../types'
 
-const initialState: ScreenContext = {
-  screenNumber: folderData.length,
+import { useReducer } from 'react'
+import { PROJECTS } from '../constants/projects'
+
+export const INITIAL_STATE: ScreenContext = {
+  screenNumber: 2,
   currentScreen: 1,
-  currentScreenData: [Projects[0]],
+  currentScreenData: [PROJECTS[0]],
 }
-type ScreenDisplayAction =
-  | { type: 'addProject'; payload: Project }
-  | { type: 'deleteProject'; payload: { id: number } }
 
 export const ScreenDispplayReducer = (
   state: ScreenContext,
@@ -22,6 +21,7 @@ export const ScreenDispplayReducer = (
     case 'addProject':
       return {
         ...state,
+        screenNumber: state.screenNumber + 1,
         currentScreenData: [...state.currentScreenData, action.payload],
       }
     default:
@@ -35,16 +35,16 @@ interface ScreenDisplayProviderProps {
 export const ScreenDisplayProvider = ({
   children,
 }: ScreenDisplayProviderProps) => {
-  const [stateScreenDisplay, dispatchScreenDisplay] = useReducer(
+  const [stateScreenDisplay, screenDisplayDispatch] = useReducer(
     ScreenDispplayReducer,
-    initialState,
+    INITIAL_STATE,
   )
   const addProject = (project: Project) => {
-    dispatchScreenDisplay({ type: 'addProject', payload: project })
+    screenDisplayDispatch({ type: 'addProject', payload: project })
   }
 
   const deleteProject = (project: Project) => {
-    dispatchScreenDisplay({ type: 'addProject', payload: project })
+    screenDisplayDispatch({ type: 'addProject', payload: project })
   }
 
   return (
