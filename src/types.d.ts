@@ -1,5 +1,7 @@
+type IdFormat = `${string}-${string}-${string}-${string}-${string}`
+type IdProject = { id: IdFormat }
 export interface Project {
-  readonly id: `${string}-${string}-${string}-${string}-${string}`
+  readonly id: IdFormat
   readonly name: string
   readonly technologies: Technology[]
   readonly description: string
@@ -12,18 +14,19 @@ type Technology = string
 type Folder = {
   name: string
   content?: (Folder | Project)[]
+  isFile?: boolean
+  id?: IdFormat
 }
 
 interface ScreenContext {
   screenNumber: number
   currentScreen: number
-  currentScreenData: Project[]
+  currentScreenData: (Project | undefined)[] | undefined
 }
 
 interface ScreenDisplayProviderContext {
   state: ScreenContext
-  addProject: (project: Project) => void
-  deleteProject: (project: Project) => void
+  addProject: (id: IdFormat) => void
 }
 interface ProjectName {
   id: string
@@ -31,6 +34,9 @@ interface ProjectName {
 }
 
 type ScreenDisplayAction =
-  | { type: 'addProject'; payload: Project }
-  | { type: 'deleteProject'; payload: { id: number } }
+  | {
+      type: 'addProject'
+      payload: { id: IdFormat }
+    }
+  | { type: 'deleteProject'; payload: { id: IdFormat } }
 // to import interface :  import {type Project } from 'path'
