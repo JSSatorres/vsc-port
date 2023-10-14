@@ -5,7 +5,6 @@ interface ProjectProps {
 }
 const Project: React.FC<ProjectProps> = ({ dataProject }) => {
   const { name, language, mainTechnology, id, technologies } = dataProject
-  console.log(id)
 
   return (
     <div className="text-white">
@@ -23,4 +22,3 @@ const Project: React.FC<ProjectProps> = ({ dataProject }) => {
 }
 
 export default Project
-// : React.FC<Folder>
