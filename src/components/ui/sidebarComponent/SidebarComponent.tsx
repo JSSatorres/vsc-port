@@ -3,6 +3,14 @@ import { folderData } from '../../../constants/folderData'
 import { FolderComponent } from '../folderComponent/FolderComponent'
 
 const SidebarComponent = () => {
+  // console.log(folderData)
+
+  // const hasChildren = (hasContent: boolean): void => {
+  //   console.log(hasContent)
+
+  //   setIsFile(!hasContent)
+  // }
+
   return (
     <div className="h-screen resize-x overflow-auto bg-gray-800 min-w-20 w-1/5 max-w-1/12 resize-right ">
       {folderData.map((folder, index) => (
@@ -10,6 +18,10 @@ const SidebarComponent = () => {
           key={index}
           content={folder?.content}
           name={folder?.name}
+          id={folder?.id}
+          // isFile={isFile}
+          // hasChildren={hasChildren}
+          // isExpanded={isExpanded}
         />
       ))}
     </div>
