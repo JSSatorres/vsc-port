@@ -1,16 +1,31 @@
 // import { folderData } from '../constants/folderData'
 import { ScreenDisplayContext } from './ScreenDisplayContext'
-import { type ScreenContext } from '../types'
-import { type Project } from '../types'
-import { type ScreenDisplayAction } from '../types'
+import {
+  ScreenContext,
+  Project,
+  type IdProject,
+  type IdFormat,
+  type ScreenDisplayAction,
+} from '../types'
 
 import { useReducer } from 'react'
 import { PROJECTS } from '../constants/projects'
 
 export const INITIAL_STATE: ScreenContext = {
-  screenNumber: 2,
+  screenNumber: 1,
   currentScreen: 1,
   currentScreenData: [PROJECTS[0]],
+}
+
+const projectToAdd = (currentScreenData: Project[], id: IdFormat) => {
+  if (!id) return
+  console.log(currentScreenData)
+  console.log(id)
+
+  const isIdInState = currentScreenData.find((project) => project.id === id)
+  if (isIdInState) return [...currentScreenData]
+  console.log(id)
+  return [...currentScreenData, PROJECTS?.find((project) => project.id === id)]
 }
 
 export const ScreenDispplayReducer = (
@@ -19,11 +34,17 @@ export const ScreenDispplayReducer = (
 ): ScreenContext => {
   switch (action.type) {
     case 'addProject':
-      return {
-        ...state,
-        screenNumber: state.screenNumber + 1,
-        currentScreenData: [...state.currentScreenData, action.payload],
+      if (projectToAdd) {
+        return {
+          ...state,
+          screenNumber: state.screenNumber + 1,
+          currentScreenData: projectToAdd(
+            state.currentScreenData as Project[],
+            action.payload,
+          ),
+        }
       }
+      return state
     default:
       return state
   }
@@ -39,20 +60,20 @@ export const ScreenDisplayProvider = ({
     ScreenDispplayReducer,
     INITIAL_STATE,
   )
-  const addProject = (project: Project) => {
-    screenDisplayDispatch({ type: 'addProject', payload: project })
+  const addProject = (id: IdFormat) => {
+    screenDisplayDispatch({ type: 'addProject', payload: id })
   }
 
-  const deleteProject = (project: Project) => {
-    screenDisplayDispatch({ type: 'addProject', payload: project })
-  }
+  // const deleteProject = (id: Project) => {
+  //   screenDisplayDispatch({ type: 'addProject', payload: id })
+  // }
 
   return (
     <ScreenDisplayContext.Provider
       value={{
         state: stateScreenDisplay,
         addProject: addProject,
-        deleteProject: deleteProject,
+        // deleteProject: deleteProject,
       }}
     >
       {children}
