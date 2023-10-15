@@ -1,24 +1,27 @@
-import Button from '../../atoms/button'
+// import Button from '../../atoms/button'
+import SearchComponent from '../SearchComponent/SearchComponent'
 import { LINKS } from './headerConstants'
 
 const Header = () => {
-  const handleButtonClick = () => {
-    // Lógica de manejo de clic aquí
-  }
+  // const handleButtonClick = () => {
+  //   // Lógica de manejo de clic aquí
+  // }
 
   return (
-    <header className="bg-gray-900 p-4">
+    <header className="bg-darker py-2">
       <nav className="flex items-center">
         {/* <Icon name="fa-home" />{' '} */}
         {/* Reemplaza "fa-home" con el nombre de tu icono */}
         <ul className="flex items-center">
           {LINKS.map((link) => (
-            <li className="text-xl ml-2 text-white" key={link}>
+            <li className="text-sm mx-2 text-white" key={link}>
               {link}
             </li>
           ))}
         </ul>
-        <Button text="Iniciar Sesión" onClick={handleButtonClick} />
+        <div>
+          <SearchComponent />
+        </div>
       </nav>
     </header>
   )
