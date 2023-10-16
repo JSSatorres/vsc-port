@@ -1,5 +1,6 @@
 // import Button from '../../atoms/button'
 import SearchComponent from '../SearchComponent/SearchComponent'
+import { IconBrandVscode } from '@tabler/icons-react'
 import { LINKS } from './headerConstants'
 
 const Header = () => {
@@ -8,54 +9,23 @@ const Header = () => {
   // }
 
   return (
-    <header className="bg-darker py-2">
+    <header className="bg-darker py-2 grid grid-cols-5 gap-4">
       <nav className="flex items-center">
-        {/* <Icon name="fa-home" />{' '} */}
+        <IconBrandVscode color="cyan" className="mx-2" />{' '}
         {/* Reemplaza "fa-home" con el nombre de tu icono */}
         <ul className="flex items-center">
           {LINKS.map((link) => (
-            <li className="text-sm mx-2 text-white" key={link}>
+            <li className="bg-darker text-sm mx-2 text-white" key={link}>
               {link}
             </li>
           ))}
         </ul>
-        <div>
-          <SearchComponent />
-        </div>
       </nav>
+      <div className="flex items-center col-start-3">
+        <SearchComponent />
+      </div>
     </header>
   )
 }
 
 export default Header
-
-// <div className="main-layout">
-// <nav>
-//   <img src={logo} alt="React Logo" />
-//   <ul>
-//     <li>
-//       <NavLink
-//         to="/home"
-//         className={({ isActive }) => (isActive ? 'nav-active' : '')}
-//       >
-//         Home
-//       </NavLink>
-//     </li>
-//     <li>
-//       <NavLink
-//         to="/about"
-//         className={({ isActive }) => (isActive ? 'nav-active' : '')}
-//       >
-//         About
-//       </NavLink>
-//     </li>
-//     <li>
-//       <NavLink
-//         to="/users"
-//         className={({ isActive }) => (isActive ? 'nav-active' : '')}
-//       >
-//         Users
-//       </NavLink>
-//     </li>
-//   </ul>
-// </nav>
