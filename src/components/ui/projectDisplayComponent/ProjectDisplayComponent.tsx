@@ -3,7 +3,7 @@ import Project from '../Project/Project'
 
 const ProjectDisplayComponent = () => {
   // const [screenNumber, setScreenNumber] = useState(0)
-  useDisplayScreen
+  // useDisplayScreen
   const { state } = useDisplayScreen()
 
   console.log(state)
