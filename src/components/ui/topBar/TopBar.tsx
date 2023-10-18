@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const TopBar = () => {
-  const [first, setfirst] = useState(second)
+  const [first /*setfirst*/] = useState('pepe')
   return (
-    <div>
+    <div className="bg-darkest w-full h-auto text-white">
       <p>{first}</p>
     </div>
   )
