@@ -10,7 +10,11 @@ export default {
         darke: '#1E2126',
         'dark-terminal': '#181A1E',
         grey: '#2D2F32',
+        midnight: '#2A2D34',
       },
+    },
+    backgroundImage: {
+      'dark-gradient': 'linear-gradient(to right, #0009,   #0008,#0009)',
     },
   },
   plugins: [],

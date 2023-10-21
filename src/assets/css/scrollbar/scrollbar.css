@@ -1,0 +1,17 @@
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #cccccc00; /* Fondo de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #535252;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #292828;
+  border-radius: 4px;
+}
