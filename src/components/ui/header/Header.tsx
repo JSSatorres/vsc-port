@@ -1,7 +1,7 @@
 // import Button from '../../atoms/button'
 import SearchComponent from '../SearchComponent/SearchComponent'
 import { IconBrandVscode } from '@tabler/icons-react'
-import { LINKS } from './headerConstants'
+// import { LINKS } from './headerConstants'
 
 const Header = () => {
   // const handleButtonClick = () => {
@@ -9,19 +9,11 @@ const Header = () => {
   // }
 
   return (
-    <header className="bg-darker py-2 grid grid-cols-5 gap-4">
-      <nav className="flex items-center">
-        <IconBrandVscode color="cyan" className="mx-2" />{' '}
-        {/* Reemplaza "fa-home" con el nombre de tu icono */}
-        <ul className="flex items-center">
-          {LINKS.map((link) => (
-            <li className="bg-darker text-sm mx-2 text-white" key={link}>
-              {link}
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <div className="flex items-center col-start-3">
+    <header className="bg-dark-gradient py-2 grid grid-cols-5 gap-4">
+      <div className="flex items-center col-span-1">
+        <IconBrandVscode color="cyan" className="mx-2" />
+      </div>
+      <div className="col-span-3 flex justify-center items-center">
         <SearchComponent />
       </div>
     </header>
@@ -29,3 +21,13 @@ const Header = () => {
 }
 
 export default Header
+
+{
+  /* <ul className="flex items-center">
+          {LINKS.map((link) => (
+            <li className="bg-darker text-sm mx-2 text-white" key={link}>
+              {link}
+            </li>
+          ))}
+        </ul> */
+}
