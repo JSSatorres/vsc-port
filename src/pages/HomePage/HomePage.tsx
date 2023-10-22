@@ -12,8 +12,10 @@ const HomePage = () => {
       <div className="flex">
         <ScreenDisplayProvider>
           <SidebarComponent />
-          <TopBar />
-          <ProjectDisplayComponent />
+          <div className="w-full">
+            <TopBar />
+            <ProjectDisplayComponent />
+          </div>
         </ScreenDisplayProvider>
       </div>
     </>
