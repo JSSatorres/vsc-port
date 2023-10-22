@@ -1,48 +1,68 @@
-import { useState, ChangeEvent } from 'react'
+import { useEffect, useState } from 'react'
 import { PROJECTS } from '../../../constants/projects'
-import { IconSearch } from '@tabler/icons-react'
+import { IconX } from '@tabler/icons-react'
+import SearchButton from './SearchButton/SearchButton'
+import SearchFilter from './SearchFilter/SearchFilter'
+import SearchList from './SearchList/SearchList'
 
 const SearchComponent = () => {
   const [searchTerm, setSearchTerm] = useState<string>('')
-  const [showMatched, setShowMatched] = useState(false)
+  const [showSearch, setShowSearch] = useState(false)
 
   const filteredData = PROJECTS.filter((item) => {
     return item.name.toLowerCase().includes(searchTerm.toLowerCase())
   })
 
-  const handelChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value)
-    console.log(e.target.value)
-
-    setShowMatched(e.target.value.length > 0)
-    console.log(e.target.value.length > 0)
+  const handleShowSearch = () => {
+    setShowSearch((prev) => !prev)
   }
 
+  const handelChange = (value: string) => {
+    setSearchTerm(value)
+  }
+
+  useEffect(() => {
+    const handleDocumentClick = (event: MouseEvent) => {
+      const targetElement = event?.target
+
+      if (!(targetElement instanceof HTMLElement)) return
+
+      const buttonContainer = targetElement.closest('.search-button-container')
+      const searchComponentContainer = targetElement.closest(
+        '.search-component-container',
+      )
+
+      if (!searchComponentContainer && !buttonContainer && showSearch) {
+        setShowSearch(false)
+        setSearchTerm('')
+      }
+    }
+
+    document.addEventListener('click', handleDocumentClick)
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick)
+    }
+  }, [showSearch])
+
   return (
-    <div className="text-white">
-      <div className="relative flex items-center">
-        <input
-          type="text"
-          className="rounded-md border bg-grey pl-1 pr-2 "
-          value={searchTerm}
-          onChange={handelChange}
-        />
-        {!showMatched && (
-          <div className="absolute left-3 top-1">
-            <IconSearch
-              size={19}
-              className="text-gray-400 transform rotate-90" // Aplicar rotación de 90 grados solo al icono
+    <div className="search-component-container text-white w-40 ">
+      {!showSearch ? (
+        <SearchButton handleShowSearch={handleShowSearch} />
+      ) : (
+        <div className="bg-black z-10 p-2 absolute top-1 left-1/2 transform -translate-x-1/2 shadow-lg ">
+          <div className="flex w-full relative">
+            <SearchFilter handelChange={handelChange} />
+            <IconX
+              className="cursor-pointer ml-4 mr-1 hover:bg-grey"
+              onClick={handleShowSearch}
             />
-            <p className="text-gray-400 ml-2">Search a project</p>
           </div>
-        )}
-      </div>
-      {showMatched && filteredData.length > 0 && (
-        <ul className="bg-grey absolute z-10 mt-2 p-2  border rounded-md">
-          {filteredData.map((item, index) => (
-            <li key={index}>{item.name}</li>
-          ))}
-        </ul>
+          <SearchList
+            filteredData={filteredData}
+            handleShowSearch={handleShowSearch}
+          />
+        </div>
       )}
     </div>
   )
