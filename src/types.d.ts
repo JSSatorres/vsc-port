@@ -36,7 +36,7 @@ interface ProjectName {
 type ScreenDisplayAction =
   | {
       type: 'addProject'
-      payload: { id: IdFormat }
+      payload: IdFormat
     }
   | { type: 'deleteProject'; payload: { id: IdFormat } }
 // to import interface :  import {type Project } from 'path'
