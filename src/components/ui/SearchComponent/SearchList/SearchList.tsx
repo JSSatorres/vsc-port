@@ -12,11 +12,11 @@ const SearchList: React.FC<SearchListProps> = ({
   filteredData,
   handleShowSearch,
 }) => {
-  console.log(filteredData)
   const { addProject } = useDisplayScreen()
 
   const handleClick = (id: IdFormat): void => {
     addProject(id)
+    console.log(id)
     handleShowSearch()
   }
 
