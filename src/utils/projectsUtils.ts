@@ -1,5 +1,5 @@
 import { PROJECTS } from '../constants/projects'
-import { type Project } from '../types'
+import { IdFormat, type Project } from '../types'
 
 export const getProjectsByTechnology = ({
   language,
@@ -17,4 +17,13 @@ export const getProjectsByTechnology = ({
 
 export const getProjectsParams = (language: string, mainTechnology: string) => {
   return { language, mainTechnology }
+}
+
+type ArrayData = { id: IdFormat }
+
+export const isElementInArrayById = (
+  id: string,
+  arraydata: ArrayData[],
+): boolean | undefined => {
+  return arraydata.some((element) => element?.id === id)
 }
