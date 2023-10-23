@@ -5,7 +5,7 @@ import { IconChevronDown } from '@tabler/icons-react'
 import { IconChevronRight } from '@tabler/icons-react'
 import { IconFileDescription } from '@tabler/icons-react'
 import { type Folder } from '../../../types'
-import { useDisplayScreen } from '../../../hook/useDisplayScreen'
+import { useDisplayScreen } from '../../../hooks/useDisplayScreen'
 
 export const FolderComponent: React.FC<Folder> = ({
   name,
@@ -18,32 +18,13 @@ export const FolderComponent: React.FC<Folder> = ({
     false,
   )
   const { addProject } = useDisplayScreen()
-  // let isFile
-  // console.log(id)
-
-  // console.log(content)
 
   const toggleExpansion = () => {
     setIsFileMyChildren(!content?.some((folder) => 'content' in folder))
-    // console.log(isFileMyChildren)
-    // console.log(content)
-    if (id) {
-      console.log(id)
 
-      addProject(id)
-    }
-
+    id && addProject(id)
     setIsExpanded(!isExpanded)
-    // if (content) {
-    //   setIsFile(!content?.some((folder) => 'content' in folder))
-    // }
-    // isFile = content?.length === 1
-    // console.log(isFile)
-    // console.log(content?.length)
-    // console.log(content)
-    // console.log(content?.some((folder) => 'content' in folder))
   }
-  // console.log(content?.length)
 
   return (
     <div>
