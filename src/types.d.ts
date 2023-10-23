@@ -21,7 +21,7 @@ type Folder = {
 interface ScreenContext {
   screenNumber: number
   currentScreen: number
-  currentScreenData: (Project | undefined)[] | undefined
+  currentScreenData: Project[]
 }
 
 interface ScreenDisplayProviderContext {
@@ -38,5 +38,5 @@ type ScreenDisplayAction =
       type: 'addProject'
       payload: IdFormat
     }
-  | { type: 'deleteProject'; payload: { id: IdFormat } }
+  | { type: 'deleteProject'; payload: IdFormat }
 // to import interface :  import {type Project } from 'path'
