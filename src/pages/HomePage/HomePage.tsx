@@ -2,8 +2,8 @@ import Header from '../../components/ui/header/Header'
 // import { Outlet } from 'react-router-dom'
 import SidebarComponent from '../../components/ui/sidebarComponent/SidebarComponent'
 import ProjectDisplayComponent from '../../components/ui/projectDisplayComponent/ProjectDisplayComponent'
-import { ScreenDisplayProvider } from '../../context/ScreenDisplayProvider'
 import TopBar from '../../components/ui/topBar/TopBar'
+import { ScreenDisplayProvider } from '../../context/ScreenDisplayContext'
 
 const HomePage = () => {
   return (
