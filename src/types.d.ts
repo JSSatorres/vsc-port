@@ -21,7 +21,7 @@ type Folder = {
 interface ScreenContext {
   screenNumber: number
   currentScreen: number
-  currentScreenData: Project[]
+  currentScreenData: (Project | undefined)[]
 }
 
 interface ScreenDisplayProviderContext {
