@@ -19,11 +19,9 @@ export const getProjectsParams = (language: string, mainTechnology: string) => {
   return { language, mainTechnology }
 }
 
-type ArrayData = { id: IdFormat }
-
 export const isElementInArrayById = (
   id: string,
-  arraydata: ArrayData[],
+  arraydata: (Project | undefined)[],
 ): boolean | undefined => {
   return arraydata.some((element) => element?.id === id)
 }
