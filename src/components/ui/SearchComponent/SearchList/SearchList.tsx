@@ -1,23 +1,18 @@
 import { Project, type IdFormat } from '../../../../types'
 import { IconPlayerPlayFilled } from '@tabler/icons-react'
 import '../../../../assets/css/scrollbar/scrollbar.css'
-import { useDisplayScreen } from '../../../../hook/useDisplayScreen'
+import { useDisplayScreen } from '../../../../hooks/useDisplayScreen'
 
 interface SearchListProps {
   filteredData: Project[]
   handleShowSearch: () => void
 }
 
-const SearchList: React.FC<SearchListProps> = ({
-  filteredData,
-  handleShowSearch,
-}) => {
-  const { addProject } = useDisplayScreen()
+const SearchList: React.FC<SearchListProps> = ({ filteredData }) => {
+  const { addProjectDispatch } = useDisplayScreen()
 
   const handleClick = (id: IdFormat): void => {
-    addProject(id)
-    console.log(id)
-    handleShowSearch()
+    id && addProjectDispatch(id)
   }
 
   return (
