@@ -2,8 +2,6 @@ import { useDisplayScreen } from '../../../hooks/useDisplayScreen'
 import Project from '../Project/Project'
 
 const ProjectDisplayComponent = () => {
-  // const [screenNumber, setScreenNumber] = useState(0)
-  // useDisplayScreen
   const { currentScreenData } = useDisplayScreen()
 
   console.log(currentScreenData)
