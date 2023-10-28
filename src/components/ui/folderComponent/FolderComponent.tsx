@@ -17,12 +17,13 @@ export const FolderComponent: React.FC<Folder> = ({
   const [isFileMyChildren, setIsFileMyChildren] = useState<boolean | undefined>(
     false,
   )
-  const { addProject } = useDisplayScreen()
+
+  const { addProjectDispatch } = useDisplayScreen()
 
   const toggleExpansion = () => {
     setIsFileMyChildren(!content?.some((folder) => 'content' in folder))
 
-    id && addProject(id)
+    id && addProjectDispatch(id)
     setIsExpanded(!isExpanded)
   }
 
