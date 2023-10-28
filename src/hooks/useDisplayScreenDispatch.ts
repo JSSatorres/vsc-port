@@ -1,12 +1,10 @@
 import { useContext } from 'react'
-import { screenDisplayContextDispatch } from '../context/ScreenDisplayContext'
+import { screenDisplayDispatchContext } from '../context/ScreenDisplayContext'
 
 export const useDisplayScreenDispatch = () => {
-  const context = useContext(screenDisplayContextDispatch)
-  if (context === undefined) {
-    throw new Error(
-      'useDisplayScreenDispatch must be used within a useDisplayScreenDispatch',
-    )
+  const context = useContext(screenDisplayDispatchContext)
+  if (!context) {
+    throw new Error('useDisplayScreenDispatch must be used within a Provider')
   }
   return context
 }
