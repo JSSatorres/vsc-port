@@ -23,6 +23,6 @@ export const isElementInArrayById = (
   id: IdFormat,
   arraydata: (Project | undefined)[],
 ): boolean | undefined => {
-  const isIdInArray = arraydata.some((element) => element?.id === id)
+  const isIdInArray = arraydata?.some((element) => element?.id === id)
   return isIdInArray
 }
