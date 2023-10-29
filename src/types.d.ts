@@ -1,3 +1,5 @@
+import { Dispatch } from 'react'
+
 type IdFormat = `${string}-${string}-${string}-${string}-${string}`
 type IdProject = { id: IdFormat }
 export interface Project {
@@ -18,25 +20,19 @@ type Folder = {
   id?: IdFormat
 }
 
-interface ScreenContext {
+export type ScreenContext = {
   screenNumber: number
   currentScreen: number
   currentScreenData: (Project | undefined)[]
 }
 
-interface ScreenDisplayProviderContext {
-  state: ScreenContext
-  addProject: (id: IdFormat) => void
-}
 interface ProjectName {
   id: string
   name: string
 }
-
-type ScreenDisplayAction =
-  | {
-      type: 'addProject'
-      payload: IdFormat
-    }
+type ScreenDisplayActionType =
+  | { type: 'addProject'; payload: IdFormat }
   | { type: 'deleteProject'; payload: IdFormat }
+
+type ScreenDisplayDispatch = Dispatch<ScreenDisplayActionType>
 // to import interface :  import {type Project } from 'path'
