@@ -27,8 +27,8 @@ const SearchComponent = () => {
 
       if (!(targetElement instanceof HTMLElement)) return
 
-      const buttonContainer = targetElement.closest('.search-button-container')
-      const searchComponentContainer = targetElement.closest(
+      const buttonContainer = targetElement?.closest('.search-button-container')
+      const searchComponentContainer = targetElement?.closest(
         '.search-component-container',
       )
 
