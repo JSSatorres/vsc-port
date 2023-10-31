@@ -9,6 +9,7 @@ export interface Project {
   readonly description: string
   readonly mainTechnology: string
   readonly language: string
+  readonly isFocussed?: boolean
 }
 
 type Technology = string
@@ -21,7 +22,7 @@ type Folder = {
 }
 
 export type ScreenContext = {
-  screenNumber: number
+  screensNumber: number
   currentScreen: number
   currentScreenData: (Project | undefined)[]
 }
