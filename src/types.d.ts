@@ -9,7 +9,7 @@ export interface Project {
   readonly description: string
   readonly mainTechnology: string
   readonly language: string
-  readonly isFocussed?: boolean
+  readonly isFocused?: boolean
 }
 
 type Technology = string
