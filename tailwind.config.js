@@ -16,6 +16,9 @@ export default {
     backgroundImage: {
       'dark-gradient': 'linear-gradient(to right, #0009,   #0008,#0009)',
     },
+    // animation: {
+    //   'bounce-slow': 'bounce 0.3s linear',
+    // },
   },
   plugins: [],
 }
