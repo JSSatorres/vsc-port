@@ -1,14 +1,13 @@
 import { Navigation } from './routes/Navigation'
 import { ToastContainer } from 'react-toastify'
-import './App.css'
-import { ScreenDisplayProvider } from './context/ScreenDisplayContext'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App(): JSX.Element {
   return (
-    <ScreenDisplayProvider>
+    <>
       <Navigation />
-      <ToastContainer />
-    </ScreenDisplayProvider>
+      <ToastContainer theme="dark" autoClose={3000} closeOnClick pauseOnHover />
+    </>
   )
 }
 
