@@ -10,7 +10,7 @@ import { isElementInArrayById } from '../utils/projectsUtils'
 import { SCREEN_DIDPLAY_CONTEXT_ACTIONS } from '../constants/contextConstans'
 
 const INITIAL_STATE: ScreenContext = {
-  screenNumber: 1,
+  screensNumber: 1,
   currentScreen: 1,
   currentScreenData: [PROJECTS[0]],
 }
@@ -26,30 +26,39 @@ const addProject = (state: ScreenContext, id: IdFormat) => {
   const isIdinState = isElementInArrayById(id, currentScreenData)
 
   if (!id || isIdinState) {
-    toast.warn('🦄 Wow so easy!', {
-      position: 'top-right',
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'colored',
-    })
+    toast.success('the project is active')
+    return state
+  }
+
+  if (state.screensNumber >= 4) {
+    toast.warn('the maximum number of projects has been reached')
     return state
   }
 
   const project = PROJECTS?.find((project) => project.id === id)
+
+  const updatedCurrentScreenData = [
+    ...currentScreenData,
+    { ...project, isFocused: true },
+  ]
+
+  // Establece un temporizador para establecer el isFocused en false después de 1 segundo
+  // setTimeout(() => {
+  //   updatedCurrentScreenData?.[
+  //     updatedCurrentScreenData.length - 1
+  //   ].isFocused?. = false;
+  // }, 1000)
+
   return {
     ...state,
-    currentScreenData: [...currentScreenData, project],
+    currentScreenData: updatedCurrentScreenData,
+    screensNumber: state.screensNumber + 1,
   }
 }
 
 const deleteProject = (state: ScreenContext, id: IdFormat) => {
   const { currentScreenData } = state
   const isIdinState = isElementInArrayById(id, currentScreenData)
-  console.log(isIdinState)
 
   if (!id || !isIdinState) {
     return state
@@ -62,6 +71,7 @@ const deleteProject = (state: ScreenContext, id: IdFormat) => {
   return {
     ...state,
     currentScreenData: newCurrentScreenData,
+    screensNumber: state.screensNumber - 1,
   }
 }
 
