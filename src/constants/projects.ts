@@ -8,6 +8,7 @@ export const PROJECTS: Project[] = [
     mainTechnology: 'React',
     description: 'lorem ipsum lapà',
     language: 'TypeScript',
+    isFocused: false,
   },
   {
     id: crypto.randomUUID(),
@@ -16,6 +17,7 @@ export const PROJECTS: Project[] = [
     mainTechnology: 'Vue',
     description: 'lorem ipsum lapà',
     language: 'TypeScript',
+    isFocused: false,
   },
   {
     id: crypto.randomUUID(),
@@ -24,6 +26,7 @@ export const PROJECTS: Project[] = [
     mainTechnology: 'Node',
     description: 'lorem ipsum lapà',
     language: 'TypeScript',
+    isFocused: false,
   },
   {
     id: crypto.randomUUID(),
@@ -32,6 +35,7 @@ export const PROJECTS: Project[] = [
     mainTechnology: 'React',
     description: 'lorem ipsum lapà',
     language: 'JavaScript',
+    isFocused: false,
   },
   {
     id: crypto.randomUUID(),
@@ -40,6 +44,7 @@ export const PROJECTS: Project[] = [
     mainTechnology: 'Vue',
     description: 'lorem ipsum lapà',
     language: 'JavaScript',
+    isFocused: false,
   },
   {
     id: crypto.randomUUID(),
@@ -48,6 +53,7 @@ export const PROJECTS: Project[] = [
     mainTechnology: 'Node',
     description: 'lorem ipsum lapà',
     language: 'JavaScript',
+    isFocused: false,
   },
   {
     id: crypto.randomUUID(),
@@ -56,6 +62,7 @@ export const PROJECTS: Project[] = [
     mainTechnology: 'React',
     description: 'lorem ipsum lapà',
     language: 'Python',
+    isFocused: false,
   },
   {
     id: crypto.randomUUID(),
@@ -64,6 +71,7 @@ export const PROJECTS: Project[] = [
     mainTechnology: 'React',
     description: 'lorem ipsum lapà',
     language: 'Python',
+    isFocused: false,
   },
   {
     id: crypto.randomUUID(),
@@ -72,6 +80,7 @@ export const PROJECTS: Project[] = [
     mainTechnology: 'React',
     description: 'lorem ipsum lapà',
     language: 'PHP',
+    isFocused: false,
   },
   {
     id: crypto.randomUUID(),
@@ -80,5 +89,6 @@ export const PROJECTS: Project[] = [
     mainTechnology: 'React',
     description: 'lorem ipsum lapà',
     language: 'PHP',
+    isFocused: false,
   },
 ]
